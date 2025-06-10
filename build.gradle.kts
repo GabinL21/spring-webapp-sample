@@ -2,6 +2,7 @@ plugins {
     java
     id("org.springframework.boot") version "3.5.0"
     id("io.spring.dependency-management") version "1.1.7"
+    id("org.sonarqube") version "6.2.0.5505"
 }
 
 group = "org.demo"
@@ -25,4 +26,12 @@ dependencies {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "GabinL21_spring-webapp-sample")
+        property("sonar.organization", "gabinl21")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
 }
